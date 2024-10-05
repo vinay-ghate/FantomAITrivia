@@ -1,0 +1,11 @@
+.env
+commands_used.txt
+temp.py
+
+.venv
+.venv/*
+
+/*__pycache__
+*/__pycache__/*
+
+*cpython*
