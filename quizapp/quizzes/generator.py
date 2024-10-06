@@ -9,8 +9,7 @@ import google.generativeai as genai
 
 class GeminiQuizGenerator:
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    
-    print(os.environ["GEMINI_API_KEY"])
+
     # Create the model
     generation_config = {
         "temperature": 1,
@@ -31,7 +30,7 @@ class GeminiQuizGenerator:
     Prompts = [
         {
             #Prompt for generating questions, options b y topic and level
-            "prompt" : """Generate a quiz with 5 questions on the topic of '{0}'. The difficulty level should be {1}, where 1 for begginer and 5 for scholer. Each question should have four multiple-choice options with one correct answer and a brief explanation.
+            "prompt" : """Generate a quiz with 5 questions on the topic of '{0}'. The difficulty level should be {1}, where 1 for begginer and 3 for scholer. Each question should have four multiple-choice options with one correct answer and a brief explanation.
             give me in json format like
             {{
                 "topic": "",
@@ -64,7 +63,6 @@ class GeminiQuizGenerator:
         prompt = cls.Prompts[0]['prompt'].format(topic,level)
         response = cls.chat.send_message(prompt)
         return response.text
-        # print(prompt)
 if __name__=='__main__':
     topic = "Cloud"
     print(GeminiQuizGenerator.askgemini(topic=topic,level='1'))

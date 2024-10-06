@@ -1,5 +1,6 @@
 .env
 commands_used.txt
+example.json
 temp.py
 
 .venv
