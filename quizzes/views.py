@@ -20,6 +20,7 @@ class userView(APIView):
     # )
     def post(self, request):
         try:
+            # print("Hello")
             serializer = UserSerializer(data=request.data)
             if not serializer.is_valid():
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -33,6 +34,7 @@ class userView(APIView):
     
     def get(self,request):
         try:
+            print("Bye")
             serializer = UserSerializer(data=request.data)
             if not serializer.is_valid():
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -4,6 +4,8 @@ from pymongo import MongoClient
 
 class User:
     client = MongoClient(os.getenv("MONGO_URI"))
+    print(os.getenv("MONGO_URI"))
+    # client = MongoClient(url)
     db = client['quiz_app_db']
     users_collection = db['users']
 
@@ -67,7 +69,7 @@ class User:
 
 if __name__=='__main__':
     user = User()
-    # print(user.create_user("vinay","1234"))
-    print(user.verify_user("vinay","1234"))
+    print(user.create_user("vinay","1234"))
+    # print(user.verify_user("vinay","1234"))
     
     
